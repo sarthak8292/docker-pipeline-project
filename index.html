@@ -4,11 +4,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RK ENTERPRISES | Happy Diwali</title>
+<title>Sarthak Gore | AWS Cloud & DevOps Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --bg: #080d18;
+    --panel: #101a2b;
+    --text: #edf3ff;
+    --muted: #a1aec4;
+    --line: #24334a;
+    --cyan: #65e6df;
+    --blue: #78a9ff;
+    --gold: #ffd27a;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,371 +28,465 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #100716;
-    color: white;
-    overflow-x: hidden;
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
 }
 
-:root {
-    --gold: #ffd36a;
-    --orange: #ff8c19;
-    --dark: #100716;
+a {
+    color: inherit;
+    text-decoration: none;
 }
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+/* NAVBAR */
 
 header {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background:
-      linear-gradient(120deg, rgba(15,4,25,.94), rgba(55,12,43,.65)),
-      url("https://images.unsplash.com/photo-1604608672516-7d9e9c4a7b0d?auto=format&fit=crop&w=2000&q=90");
-    background-position: center;
-    background-size: cover;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 8%;
-    background: rgba(15,5,25,.65);
-    backdrop-filter: blur(10px);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 10;
-    border-bottom: 1px solid rgba(255,211,106,.2);
+    background: rgba(8,13,24,.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--line);
 }
 
-.logo {
-    color: var(--gold);
-    font-size: 27px;
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 2px;
 }
 
-.logo span {
+.brand span {
+    color: var(--cyan);
+}
+
+.links {
+    display: flex;
+    gap: 23px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.links a:hover {
+    color: var(--cyan);
+}
+
+.menu {
+    display: none;
+    background: none;
     color: white;
+    border: 1px solid var(--line);
+    padding: 8px;
+    border-radius: 8px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
-    transition: .3s;
-}
-
-nav a:hover {
-    color: var(--gold);
-}
+/* HERO SECTION */
 
 .hero {
-    min-height: 85vh;
-    display: flex;
-    justify-content: center;
+    padding: 95px 0;
+    background:
+    radial-gradient(ellipse at 85% 20%, #17445170, transparent 40%),
+    radial-gradient(ellipse at 5% 90%, #263d7060, transparent 40%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 45px;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 50px 20px;
-    position: relative;
-    z-index: 2;
 }
 
-.established {
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 9px 25px;
-    border-radius: 50px;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 25px;
-    background: rgba(255,190,50,.08);
+.eyebrow, .mono {
+    font: 12px 'DM Mono';
+    letter-spacing: 2px;
+    color: var(--cyan);
 }
 
-.hero h1 {
-    font-size: clamp(45px, 8vw, 95px);
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: white;
-    text-shadow: 0 0 25px rgba(255,174,30,.5);
+h1 {
+    font-size: clamp(43px, 7vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    margin: 18px 0;
 }
 
-.hero h1 span {
-    display: block;
-    background: linear-gradient(90deg, #fff1a5, #ffb52e, #fff0a0);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-family: 'Playfair Display', serif;
+h1 span {
+    color: var(--cyan);
 }
 
-.hero h2 {
-    font-size: clamp(22px, 4vw, 42px);
-    color: var(--gold);
-    margin-top: 22px;
-    font-family: 'Playfair Display', serif;
+.lead {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 680px;
 }
 
-.hero p {
-    max-width: 750px;
-    line-height: 1.9;
-    color: #f1e4f5;
-    margin: 20px auto 30px;
-    font-size: 15px;
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 27px;
 }
 
 .btn {
     display: inline-block;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    padding: 15px 32px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #ff8c19, #ffdf76);
-    color: #281020;
-    font-weight: 700;
-    transition: .3s;
-    box-shadow: 0 0 25px rgba(255,174,30,.4);
+    padding: 12px 18px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.btn.primary {
+    background: var(--cyan);
+    color: #07131b;
+    border-color: var(--cyan);
 }
 
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(255,174,30,.8);
+    transform: translateY(-3px);
+    border-color: var(--cyan);
 }
 
-.btn-outline {
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    margin-left: 10px;
-    box-shadow: none;
+/* PROFILE CARD */
+
+.profile {
+    padding: 27px;
+    background: linear-gradient(145deg,#14253a,#0d1727);
+    border: 1px solid #2b4561;
+    border-radius: 20px;
+    box-shadow: 0 20px 70px #0006;
 }
 
-.section {
-    padding: 85px 8%;
-    text-align: center;
+.avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    background: linear-gradient(135deg,var(--cyan),var(--blue));
+    display: grid;
+    place-items: center;
+    color: #07131b;
+    font-size: 27px;
+    font-weight: 900;
+    margin-bottom: 18px;
 }
 
-.section-title {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: clamp(32px, 5vw, 52px);
-    margin-bottom: 15px;
+.profile h3 {
+    font-size: 22px;
 }
 
-.section-subtitle {
-    color: #d5c5dd;
-    max-width: 700px;
-    margin: 0 auto 45px;
-    line-height: 1.8;
-    font-size: 14px;
+.profile p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 5px;
 }
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.metric {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.metric strong {
+    display: block;
+    color: var(--cyan);
+    font-size: 20px;
+}
+
+.metric span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* COMMON SECTIONS */
+
+section {
+    padding: 78px 0;
+    border-top: 1px solid #24334a80;
+}
+
+.head {
+    margin-bottom: 30px;
+}
+
+.head h2 {
+    font-size: clamp(28px,4vw,40px);
+    margin-top: 7px;
+}
+
+.head p, .muted {
+    color: var(--muted);
+}
+
+/* ABOUT */
 
 .about {
-    background: linear-gradient(135deg, #190b29, #30102f);
-}
-
-.about-box {
-    max-width: 900px;
-    margin: auto;
-    padding: 35px;
-    border: 1px solid rgba(255,211,106,.3);
-    border-radius: 20px;
-    background: rgba(255,255,255,.04);
-}
-
-.about-box p {
-    color: #e6d9ed;
-    line-height: 2;
-    font-size: 15px;
-}
-
-.services {
-    background: #100716;
-}
-
-.service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-.service-card {
-    background: linear-gradient(145deg, #291238, #170a25);
-    padding: 35px 25px;
-    border: 1px solid rgba(255,211,106,.2);
-    border-radius: 20px;
-    transition: .4s;
+.about p {
+    color: var(--muted);
+    margin-bottom: 14px;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--gold);
-    box-shadow: 0 15px 35px rgba(255,159,30,.12);
+.infos {
+    display: grid;
+    gap: 10px;
 }
 
-.service-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
+.info {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
 }
 
-.service-card h3 {
-    color: var(--gold);
-    margin-bottom: 12px;
-    font-size: 19px;
+.info small {
+    display: block;
+    color: var(--muted);
+    font: 10px 'DM Mono';
+    letter-spacing: 1px;
 }
 
-.service-card p {
-    color: #cdbed8;
-    line-height: 1.8;
+.info strong {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* SKILLS */
+
+.skills, .projects, .education {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+}
+
+.skillbox {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.skillbox h3 {
+    color: var(--cyan);
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 11px;
+    background: #142238;
+    border: 1px solid #30425d;
+    padding: 5px 9px;
+    border-radius: 7px;
+    color: #dce8fa;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+    border-left: 1px solid #36516e;
+    margin-left: 8px;
+    padding-left: 24px;
+}
+
+.experience {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.experience:before {
+    content: "";
+    position: absolute;
+    left: -31px;
+    top: 25px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 5px #65e6df20;
+}
+
+.exphead {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.exphead h3 {
+    font-size: 20px;
+}
+
+.date {
+    font: 11px 'DM Mono';
+    color: var(--cyan);
+}
+
+.experience h4 {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 4px 0 12px;
+}
+
+ul {
+    padding-left: 18px;
+    color: var(--muted);
     font-size: 13px;
 }
 
-.festival {
-    background:
-      linear-gradient(rgba(20,5,30,.78), rgba(20,5,30,.9)),
-      url("https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1800&q=90");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+li {
+    margin: 7px 0;
 }
 
-.festival-box {
-[O    max-width: 900px;
-    margin: auto;
-    padding: 55px 25px;
-    border: 1px solid var(--gold);
-    border-radius: 25px;
-    background: rgba(20,5,30,.5);
-    backdrop-filter: blur(8px);
+/* PROJECTS */
+
+.project {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    min-height: 270px;
 }
 
-.festival-box h2 {
-    font-family: 'Playfair Display', serif;
+.project h3 {
+    font-size: 18px;
+    margin: 15px 0 9px;
+}
+
+.project p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.project .tags {
+    margin-top: auto;
+}
+
+/* CERTIFICATION */
+
+.cert {
+    border: 1px solid #5b5135;
+    background: linear-gradient(135deg,#211e18,#121a29);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.cert h3 {
     color: var(--gold);
-    font-size: clamp(30px, 5vw, 55px);
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
-.festival-box p {
-    color: #f2e7f5;
-    line-height: 2;
+.cert p {
+    font-size: 13px;
+    color: var(--muted);
 }
 
-.contact {
-    background: linear-gradient(135deg, #25102e, #120719);
+/* CONTACT */
+
+.contactbox {
+    padding: 30px;
+    border: 1px solid #2c5360;
+    background: linear-gradient(135deg,#102a35,#101a2b);
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.contact-card {
-    max-width: 650px;
-    margin: auto;
-    padding: 40px 25px;
-    border: 1px solid rgba(255,211,106,.4);
-    border-radius: 25px;
-    background: rgba(255,255,255,.04);
-}
-
-.contact-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.contact-card p {
-    color: #eee0f2;
-    line-height: 2.2;
-    font-size: 15px;
-}
-
-.contact-card strong {
-    color: var(--gold);
-}
-
-.contact-buttons {
-    margin-top: 25px;
+.contactbox p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 7px;
 }
 
 footer {
-    text-align: center;
-    padding: 25px 15px;
-    background: #09030e;
-    color: #cdbbd6;
-    font-size: 13px;
-    line-height: 2;
+    padding: 23px 0;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--line);
 }
 
-footer strong {
-    color: var(--gold);
-}
-
-/* Floating golden lights */
-.sparkle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #ffe69b;
-    border-radius: 50%;
-    box-shadow: 0 0 15px 5px #ff9e21;
-    animation: float 7s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) scale(.5); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-}
-
-/* Diyas */
-.diya-row {
+footer .container {
     display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin-top: 35px;
-    font-size: 45px;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.diya {
-    animation: diyaGlow 1.5s infinite alternate;
-}
+/* MOBILE RESPONSIVE */
 
-@keyframes diyaGlow {
-    from { filter: drop-shadow(0 0 5px orange); }
-    to { filter: drop-shadow(0 0 25px gold); }
-}
+@media(max-width:760px) {
+    .hero-grid, .about, .skills, .projects, .education {
+        grid-template-columns: 1fr;
+    }
 
-/* Fireworks canvas */
-#fireworks {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 20;
-}
+    .hero {
+        padding: 65px 0;
+    }
 
-@media(max-width: 700px) {
-    nav {
+    .links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #0b1422;
+        padding: 20px;
         flex-direction: column;
-        gap: 15px;
     }
 
-    nav div:last-child {
+    .links.open {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
     }
 
-    nav a {
-        margin: 0;
-        font-size: 12px;
+    .menu {
+        display: block;
     }
 
-    .btn-outline {
-        margin: 12px 0 0;
+    .metrics {
+        grid-template-columns: repeat(3,1fr);
     }
+}
 
-    .festival {
-        background-attachment: scroll;
+@media(max-width:420px) {
+    .metrics {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -389,267 +494,453 @@ footer strong {
 
 <body>
 
-<canvas id="fireworks"></canvas>
+<!-- NAVIGATION -->
 
-<header id="home">
+<header>
+<div class="container nav">
 
-<nav>
-    <div class="logo">RK <span>ENTERPRISES</span></div>
+<a class="brand" href="#home">SARTHAK<span>.</span></a>
 
-    <div>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </div>
+<button class="menu" id="menu">☰</button>
+
+<nav class="links" id="links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
 </nav>
-
-<div class="hero">
-
-    <div class="established">TRUST • SERVICE • COMMITMENT</div>
-
-    <h1>
-        RK
-        <span>ENTERPRISES</span>
-    </h1>
-
-    <h2>Wishes You All a Very Happy Diwali!</h2>
-
-    <p>
-        May this Diwali bring happiness, success, prosperity and
-        new opportunities into your life. We sincerely thank
-        our clients, employees, partners and well-wishers
-        for their trust and support.
-    </p>
-
-    <div>
-        <a href="#contact" class="btn">Contact Us</a>
-        <a href="#about" class="btn btn-outline">Know More</a>
-    </div>
-
-    <div class="diya-row">
-        <span class="diya">🪔</span>
-        <span class="diya">✨</span>
-        <span class="diya">🪔</span>
-        <span class="diya">✨</span>
-        <span class="diya">🪔</span>
-    </div>
 
 </div>
 </header>
 
-<section class="section about" id="about">
+<main>
 
-    <h2 class="section-title">About RK Enterprises</h2>
+<!-- HERO -->
 
-    <p class="section-subtitle">
-        Your workforce partner. Your growth partner.
-    </p>
+<section class="hero" id="home">
+<div class="container hero-grid">
 
-    <div class="about-box">
-        <p>
-            <strong style="color:#ffd36a;">RK ENTERPRISES</strong>
-            is a manpower supply company led by
-            <strong style="color:#ffd36a;">Mr. Rohan Kale</strong>.
-            We focus on connecting businesses with manpower
-            according to their workforce requirements.
-            Our aim is to support business operations through
-            dependable manpower supply and professional service.
-        </p>
-    </div>
+<div>
 
+<div class="eyebrow">AWS CLOUD • DEVOPS • AUTOMATION</div>
+
+<h1>
+Hi, I'm Sarthak
+<br>
+<span>Gore.</span>
+</h1>
+
+<p class="lead">
+AWS Cloud / DevOps Engineer focused on cloud infrastructure,
+CI/CD automation, containerized deployments and infrastructure monitoring.
+</p>
+
+<div class="actions">
+
+<a class="btn primary" href="#projects">
+Explore My Projects ↗
+</a>
+
+<a class="btn" href="mailto:sarthakgore002@gmail.com">
+Contact Me
+</a>
+
+<a class="btn" href="https://github.com/sarthak8292" target="_blank">
+GitHub ↗
+</a>
+
+</div>
+
+<div class="metrics">
+<div class="metric">
+<strong>AWS</strong>
+<span>Cloud services</span>
+</div>
+
+<div class="metric">
+<strong>CI/CD</strong>
+<span>Build & deploy</span>
+</div>
+
+<div class="metric">
+<strong>Monitoring</strong>
+<span>Metrics & dashboards</span>
+</div>
+</div>
+
+</div>
+
+<aside class="profile">
+
+<div class="avatar">SG</div>
+
+<div class="mono">PROFILE</div>
+
+<h3>Sarthak Gore</h3>
+
+<p>AWS Cloud / DevOps Engineer</p>
+<p>📍 Pune, Maharashtra</p>
+<p>✉ sarthakgore002@gmail.com</p>
+<p>☎ 9322348292</p>
+
+</aside>
+
+</div>
 </section>
 
-<section class="section services" id="services">
+<!-- ABOUT -->
 
-    <h2 class="section-title">Our Manpower Services</h2>
+<section id="about">
+<div class="container">
 
-    <p class="section-subtitle">
-        Workforce support for business and operational requirements.
-    </p>
+<div class="head">
+<div class="eyebrow">01 / ABOUT ME</div>
+<h2>Building, automating & monitoring cloud systems.</h2>
+</div>
 
-    <div class="service-grid">
+<div class="about">
 
-        <div class="service-card">
-            <div class="service-icon">👷</div>
-            <h3>Skilled Manpower</h3>
-            <p>Workforce support for roles requiring specific skills and experience.</p>
-        </div>
+<div>
+<p>
+I am an AWS Cloud / DevOps Engineer with professional experience
+at Hefshine Software since October 2025. I work with AWS cloud services,
+Linux, CI/CD workflows, containerization, deployment and infrastructure monitoring.
+</p>
 
-        <div class="service-card">
-            <div class="service-icon">🧑‍🔧</div>
-            <h3>Semi-Skilled Manpower</h3>
-            <p>Manpower support for operational and technical assistance requirements.</p>
-        </div>
+<p>
+My hands-on toolkit includes Jenkins, Docker, Git/GitHub,
+SonarQube, Amazon ECR, Prometheus, Node Exporter, Grafana
+and Terraform fundamentals. I enjoy learning practical cloud technologies
+and improving deployment and operational workflows.
+</p>
+</div>
 
-        <div class="service-card">
-            <div class="service-icon">🏭</div>
-            <h3>Industrial Manpower</h3>
-            <p>Workforce support for industrial and business operations.</p>
-        </div>
+<div class="infos">
 
-        <div class="service-card">
-            <div class="service-icon">🤝</div>
-            <h3>Manpower Supply</h3>
-            <p>Workforce support based on your company's manpower requirements.</p>
-        </div>
+<div class="info">
+<small>CURRENT ROLE</small>
+<strong>DevOps Engineer / AWS Cloud Engineer</strong>
+</div>
 
-    </div>
+<div class="info">
+<small>LOCATION</small>
+<strong>Pune, Maharashtra, India</strong>
+</div>
 
+<div class="info">
+<small>EDUCATION</small>
+<strong>B.Sc. Computer Science</strong>
+</div>
+
+<div class="info">
+<small>FOCUS</small>
+<strong>Cloud • CI/CD • Containers • Monitoring</strong>
+</div>
+
+</div>
+</div>
+</div>
 </section>
 
-<section class="section festival">
+<!-- SKILLS -->
 
-    <div class="festival-box">
+<section id="skills">
+<div class="container">
 
-        <h2>🪔 Happy Diwali 🪔</h2>
+<div class="head">
+<div class="eyebrow">02 / TECHNICAL TOOLKIT</div>
+<h2>Skills & Technologies</h2>
+<p>Technologies listed in my resume.</p>
+</div>
 
-        <p>
-            On this beautiful occasion of Diwali,
-            RK ENTERPRISES extends warm wishes to everyone.
+<div class="skills">
 
-            May the festival of lights brighten your homes,
-            bring joy to your families and fill your lives
-            with peace, prosperity and success.
+<div class="skillbox">
+<h3>☁ AWS & Cloud</h3>
+<div class="tags">
+<span class="tag">EC2</span>
+<span class="tag">S3</span>
+<span class="tag">VPC</span>
+<span class="tag">IAM</span>
+<span class="tag">Lambda</span>
+<span class="tag">CloudWatch</span>
+<span class="tag">RDS</span>
+<span class="tag">DynamoDB</span>
+<span class="tag">ECR</span>
+<span class="tag">ECS</span>
+<span class="tag">EBS</span>
+<span class="tag">EFS</span>
+<span class="tag">ELB</span>
+<span class="tag">Auto Scaling</span>
+<span class="tag">CloudFormation</span>
+<span class="tag">CloudTrail</span>
+<span class="tag">EventBridge</span>
+<span class="tag">Route 53</span>
+<span class="tag">SNS</span>
+<span class="tag">SQS</span>
+<span class="tag">Elastic Beanstalk</span>
+<span class="tag">AWS CLI</span>
+</div>
+</div>
 
-            Thank you for being a part of our journey.
-        </p>
+<div class="skillbox">
+<h3>♧ DevOps & CI/CD</h3>
+<div class="tags">
+<span class="tag">Jenkins</span>
+<span class="tag">Docker</span>
+<span class="tag">Git</span>
+<span class="tag">GitHub</span>
+<span class="tag">SonarQube</span>
+<span class="tag">Amazon ECR</span>
+<span class="tag">Terraform Fundamentals</span>
+<span class="tag">Nginx</span>
+</div>
+</div>
 
-        <div class="diya-row">
-            <span>🌸</span>
-            <span>🪔</span>
-            <span>🌺</span>
-            <span>🪔</span>
-            <span>🌸</span>
-        </div>
+<div class="skillbox">
+<h3>◉ Monitoring & Operations</h3>
+<div class="tags">
+<span class="tag">Prometheus</span>
+<span class="tag">Node Exporter</span>
+<span class="tag">Grafana</span>
+<span class="tag">Linux</span>
+<span class="tag">CloudWatch</span>
+</div>
+</div>
 
-    </div>
+<div class="skillbox">
+<h3>⌘ Programming & Web</h3>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Flask</span>
+</div>
+</div>
 
+</div>
+</div>
 </section>
 
-<section class="section contact" id="contact">
+<!-- EXPERIENCE -->
 
-    <h2 class="section-title">Get In Touch</h2>
+<section id="experience">
+<div class="container">
 
-    <p class="section-subtitle">
-        For manpower requirements and business enquiries, contact us.
-    </p>
+<div class="head">
+<div class="eyebrow">03 / EXPERIENCE</div>
+<h2>Professional Experience</h2>
+</div>
 
-    <div class="contact-card">
+<div class="timeline">
 
-        <h3>RK ENTERPRISES</h3>
+<article class="experience">
 
-        <p>
-            <strong>Owner:</strong> Mr. Rohan Kale
-            <br>
-            <strong>Business:</strong> Manpower Supply
-            <br>
-            <strong>Contact:</strong> +91 75592 22299
-        </p>
+<div class="exphead">
+<h3>Hefshine Software</h3>
+<span class="date">OCT 2025 — PRESENT</span>
+</div>
 
-        <div class="contact-buttons">
-            <a class="btn" href="tel:+917559222299">📞 Call Now</a>
+<h4>DevOps Engineer / AWS Cloud Engineer · Pune, Maharashtra</h4>
 
-            <a class="btn btn-outline"
-               href="https://wa.me/917559222299?text=Hello%20RK%20Enterprises%2C%20I%20want%20to%20enquire%20about%20manpower%20supply."
-               target="_blank">
-               WhatsApp Us
-            </a>
-        </div>
+<ul>
+<li>Worked with AWS EC2, S3, VPC, IAM, Lambda, CloudWatch, RDS and DynamoDB.</li>
 
-    </div>
+<li>Worked on CI/CD workflows using GitHub, Jenkins Pipeline, Docker, SonarQube and Amazon ECR.</li>
 
+<li>Built Docker images, pushed versioned images to Amazon ECR and practiced deploying containers on EC2 using Nginx.</li>
+
+<li>Integrated SonarQube into Jenkins workflows for code quality analysis.</li>
+
+<li>Practiced monitoring using Prometheus, Node Exporter and Grafana to visualize CPU, memory, disk and network metrics.</li>
+
+<li>Performed Linux server tasks, AWS CLI operations, cloud configuration and troubleshooting exercises.</li>
+
+<li>Practiced Terraform fundamentals and explored automated AWS infrastructure provisioning.</li>
+</ul>
+
+</article>
+</div>
+</div>
 </section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+<div class="container">
+
+<div class="head">
+<div class="eyebrow">04 / SELECTED WORK</div>
+<h2>Projects I've Worked On</h2>
+<p>Practical work in CI/CD, container deployment and cloud monitoring.</p>
+</div>
+
+<div class="projects">
+
+<article class="project">
+
+<div class="mono">PROJECT 01 · CI/CD</div>
+
+<h3>AWS DevOps CI/CD Pipeline & Containerized Website Deployment</h3>
+
+<p>
+Integrated GitHub with Jenkins Pipeline for source checkout and build execution.
+Added SonarQube code quality analysis, used Jenkins build numbers for Docker
+image versioning, pushed images to Amazon ECR and practiced deployment
+on EC2 using Nginx.
+</p>
+
+<div class="tags">
+<span class="tag">AWS EC2</span>
+<span class="tag">Jenkins</span>
+<span class="tag">GitHub</span>
+<span class="tag">SonarQube</span>
+<span class="tag">Docker</span>
+<span class="tag">ECR</span>
+<span class="tag">Nginx</span>
+</div>
+
+</article>
+
+<article class="project">
+
+<div class="mono">PROJECT 02 · MONITORING</div>
+
+<h3>AWS EC2 Monitoring with Prometheus & Grafana</h3>
+
+<p>
+Configured Node Exporter to expose EC2 host metrics and Prometheus
+to collect monitoring data. Created Grafana dashboards for CPU,
+memory, disk and network utilization, and performed CPU stress testing
+to observe resource changes.
+</p>
+
+<div class="tags">
+<span class="tag">AWS EC2</span>
+<span class="tag">Linux</span>
+<span class="tag">Prometheus</span>
+<span class="tag">Node Exporter</span>
+<span class="tag">Grafana</span>
+</div>
+
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- EDUCATION & CERTIFICATION -->
+
+<section id="education">
+<div class="container">
+
+<div class="head">
+<div class="eyebrow">05 / EDUCATION & CERTIFICATION</div>
+<h2>Learning Foundation</h2>
+</div>
+
+<div class="education">
+
+<article class="skillbox">
+
+<div class="mono">EDUCATION</div>
+
+<h3 style="margin:10px 0">
+Bachelor of Science — Computer Science
+</h3>
+
+<p class="muted">Dayanand Science College · Latur, Maharashtra</p>
+<p class="muted">July 2023 – June 2026</p>
+
+<div class="tags" style="margin-top:12px">
+<span class="tag">72.39%</span>
+<span class="tag">CGPA 8.49</span>
+</div>
+
+</article>
+
+<article class="cert">
+
+<div class="mono" style="color:var(--gold)">CERTIFICATION</div>
+
+<h3>New Relic Verified Foundation (NVF)</h3>
+
+<p>Issued by New Relic · October 2026</p>
+<p>Credential ID: 198792967</p>
+
+<p>
+<a style="color:var(--gold)" href="https://credentials.newrelic.com" target="_blank">
+Credential Portal ↗
+</a>
+</p>
+
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container">
+
+<div class="contactbox">
+
+<div>
+<div class="eyebrow">06 / LET'S CONNECT</div>
+<h2 style="font-size:32px;margin-top:7px">Have an opportunity?</h2>
+<p>Feel free to contact me about AWS Cloud and DevOps opportunities.</p>
+</div>
+
+<div class="actions" style="margin:0">
+
+<a class="btn primary" href="mailto:sarthakgore002@gmail.com">
+✉ Email Me
+</a>
+
+<a class="btn" href="tel:+919322348292">
+☎ Call
+</a>
+
+<a class="btn" href="https://www.linkedin.com/in/sarthak-gore-a82934436/" target="_blank">
+LinkedIn ↗
+</a>
+
+<a class="btn" href="https://github.com/sarthak8292" target="_blank">
+GitHub ↗
+</a>
+
+</div>
+</div>
+</div>
+</section>
+
+</main>
 
 <footer>
-    <strong>RK ENTERPRISES</strong>
-    <br>
-    Manpower Supply Services
-    <br>
-    Wishing Everyone a Very Happy Diwali 🪔
-    <br>
-    © 2026 RK Enterprises. All Rights Reserved.
+<div class="container">
+<span>© 2026 Sarthak Gore. All rights reserved.</span>
+<span>Cloud • DevOps • Continuous Learning</span>
+</div>
 </footer>
 
 <script>
-// Floating golden lights
-const header = document.querySelector("header");
+const menu = document.getElementById('menu');
+const links = document.getElementById('links');
 
-for (let i = 0; i < 45; i++) {
-    const sparkle = document.createElement("span");
-    sparkle.className = "sparkle";
-    sparkle.style.left = Math.random() * 100 + "%";
-    sparkle.style.bottom = "-15px";
-    sparkle.style.animationDelay = Math.random() * 7 + "s";
-    sparkle.style.animationDuration = (5 + Math.random() * 7) + "s";
-    header.appendChild(sparkle);
-}
+menu.addEventListener('click', () => {
+    links.classList.toggle('open');
+});
 
-// Fireworks animation
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-function createFirework(x, y) {
-    const colors = ["#ffd36a", "#ff6b35", "#ff3d9a", "#ffffff", "#7df9ff"];
-
-    for (let i = 0; i < 45; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 4 + 1;
-
-        particles.push({
-            x: x,
-            y: y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            alpha: 1,
-            color: colors[Math.floor(Math.random() * colors.length)]
-        });
-    }
-}
-
-function animateFireworks() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((p, index) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.025;
-        p.alpha -= 0.012;
-
-        ctx.globalAlpha = Math.max(p.alpha, 0);
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fill();
-
-        if (p.alpha <= 0) {
-            particles.splice(index, 1);
-        }
+links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+        links.classList.remove('open');
     });
-
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(animateFireworks);
-}
-
-animateFireworks();
-
-// Automatic fireworks
-setInterval(() => {
-    createFirework(
-        Math.random() * canvas.width,
-        Math.random() * (canvas.height * 0.55)
-    );
-}, 1500);
+});
 </script>
 
 </body>
