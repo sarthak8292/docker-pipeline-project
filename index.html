@@ -1,171 +1,507 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DevOps Portfolio</title>
+<title>Magical Diwali Celebration</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background:#0f172a;
-color:white;
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: Georgia, serif;
+    color: white;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 50% 20%, #7b176d 0%, transparent 40%),
+      linear-gradient(135deg, #16002d, #390044, #850b45, #28002f);
+    min-height: 100vh;
 }
 
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: rgba(20,0,35,.65);
+    border-bottom: 1px solid rgba(255,215,0,.4);
 }
 
-h1{
-font-size:4rem;
-margin-bottom:20px;
+.logo {
+    color: #ffd700;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-h2{
-color:#38bdf8;
-margin-bottom:20px;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-family: Arial;
 }
 
-p{
-font-size:1.2rem;
-max-width:800px;
-line-height:1.8;
+nav a:hover { color: #ffd700; }
+
+/* Hero */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
 }
 
-.btn{
-margin-top:30px;
-padding:15px 30px;
-background:#38bdf8;
-border:none;
-border-radius:5px;
-cursor:pointer;
-font-size:18px;
+.tag {
+    color: #ffd700;
+    letter-spacing: 5px;
+    font-family: Arial;
+    margin-bottom: 25px;
 }
 
-.btn:hover{
-transform:scale(1.05);
+.hero h1 {
+    font-size: clamp(48px, 9vw, 100px);
+    color: #ffe58a;
+    text-shadow: 0 0 15px #ff9d00, 0 0 45px #ff4d00;
+    animation: titleGlow 2s infinite alternate;
 }
 
-.section{
-padding:80px 20px;
-text-align:center;
+@keyframes titleGlow {
+    to { text-shadow: 0 0 30px #fff, 0 0 70px #ff9d00; }
 }
 
-.cards{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:30px;
+.hero h2 {
+    font-size: clamp(22px, 4vw, 35px);
+    color: #ffb8ed;
+    margin: 20px 0;
 }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:10px;
-width:250px;
-transition:0.3s;
+.hero p {
+    font-family: Arial;
+    max-width: 650px;
+    line-height: 1.8;
+    color: #ffe8d1;
 }
 
-.card:hover{
-transform:translateY(-10px);
+.main-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 35px;
+    border-radius: 40px;
+    border: 2px solid #fff0a0;
+    color: #41002e;
+    background: linear-gradient(45deg, #ffbd00, #ffec8a, #ff8b00);
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ffae00;
+    transition: .3s;
 }
 
-footer{
-padding:30px;
-text-align:center;
-background:#1e293b;
+.main-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 45px #fff000;
 }
 
+/* Decorative lights */
+.lights {
+    font-size: 45px;
+    margin-top: 35px;
+    animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+    to { transform: translateY(-12px); }
+}
+
+/* Diya row */
+.diya-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.diya {
+    font-size: 65px;
+    filter: drop-shadow(0 0 15px orange);
+    animation: diyaGlow 1.2s infinite alternate;
+}
+
+@keyframes diyaGlow {
+    to { filter: drop-shadow(0 0 35px yellow); }
+}
+
+/* Cards */
+.section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.section-title {
+    color: #ffe28a;
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 18px;
+}
+
+.section-desc {
+    color: #fbd9f4;
+    font-family: Arial;
+    line-height: 1.8;
+    margin: auto;
+    max-width: 700px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.card {
+    padding: 35px 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,.15),
+        rgba(255,255,255,.04));
+    border: 1px solid rgba(255,215,0,.5);
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 30px rgba(255,190,0,.4);
+}
+
+.card .emoji {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #ffdf75;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-family: Arial;
+    color: #f9dff4;
+    line-height: 1.7;
+}
+
+/* Family message */
+.family {
+    margin: 30px auto;
+    max-width: 850px;
+    padding: 55px 25px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #a50069, #6a167f, #d34b22);
+    border: 2px solid #ffdf75;
+    box-shadow: 0 0 40px rgba(255,180,0,.3);
+}
+
+.family h2 {
+    color: #fff0a1;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.family p {
+    font-family: Arial;
+    line-height: 2;
+    font-size: 18px;
+}
+
+/* Rangoli */
+.rangoli {
+    font-size: 100px;
+    display: inline-block;
+    filter: drop-shadow(0 0 25px gold);
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 15px;
+    background: rgba(0,0,0,.45);
+    border-top: 1px solid #ffd700;
+}
+
+footer h2 { color: #ffd86b; margin-bottom: 12px; }
+
+/* Fireworks */
+#fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.particle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+    from {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translate(var(--x),var(--y)) scale(.1);
+        opacity: 0;
+    }
+}
+
+/* Floating petals */
+.petal {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    z-index: 3;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: .1;
+    }
+}
+
+@media(max-width: 650px) {
+    nav { flex-direction: column; gap: 15px; }
+    nav a { margin: 0 7px; font-size: 13px; }
+    .family h2 { font-size: 27px; }
+}
 </style>
-
 </head>
 
 <body>
 
-<header>
+<div id="fireworks"></div>
 
-<h1>dayanand science college latur</h1>
+<nav>
+    <div class="logo">🪔 DIWALI MAGIC</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#celebration">Celebration</a>
+        <a href="#family">Family</a>
+    </div>
+</nav>
 
-<h2>Jenkins + Docker + CI/CD Automation</h2>
+<section class="hero" id="home">
 
-<p>
-This application was automatically deployed using a Jenkins Pipeline.
-Every code change can be built, tested, containerized and deployed
-without manual intervention.
-</p>
+    <div class="tag">✨ FESTIVAL OF LIGHTS ✨</div>
 
-<button class="btn" onclick="showMessage()">
-Show Deployment Status
-</button>
+    <h1>Happy Diwali</h1>
 
-<p id="message" style="margin-top:20px;"></p>
+    <h2>🌸 A Celebration of Love & Happiness 🌸</h2>
 
-</header>
+    <p>
+        May the divine lights of Diwali bring endless happiness,
+        beautiful memories, good health and prosperity to your family.
+        Let every diya shine with love and every heart glow with joy!
+    </p>
 
-<section class="section">
+    <div class="lights">🪔 🪔 🪔</div>
 
-<h2>Skills Demonstrated</h2>
+    <button class="main-btn" onclick="startCelebration()">
+        🎆 Celebrate Now
+    </button>
 
-<div class="cards">
+</section>
 
-<div class="card">
-<h3>Jenkins</h3>
-<p>Pipeline Automation</p>
-</div>
+<section class="diya-section">
+    <div class="diya">🪔</div>
+    <div class="diya">🏮</div>
+    <div class="diya">🪔</div>
+    <div class="diya">🏮</div>
+    <div class="diya">🪔</div>
+</section>
 
-<div class="card">
-<h3>Docker</h3>
-<p>Container Deployment</p>
-</div>
+<section class="section" id="celebration">
 
-<div class="card">
-<h3>GitHub</h3>
-<p>Source Control</p>
-</div>
+    <h2 class="section-title">✨ The Magic of Diwali ✨</h2>
 
-<div class="card">
-<h3>CI/CD</h3>
-<p>Continuous Delivery</p>
-</div>
+    <p class="section-desc">
+        Diwali is a festival that brings families together
+        and fills every home with happiness, colours and light.
+    </p>
 
-</div>
+    <div class="cards">
+
+        <div class="card">
+            <div class="emoji">🪔</div>
+            <h3>Festival of Lights</h3>
+            <p>Light beautiful diyas and spread positivity everywhere.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎨</div>
+            <h3>Beautiful Rangoli</h3>
+            <p>Decorate your home with colourful and creative rangoli.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🍬</div>
+            <h3>Sweet Memories</h3>
+            <p>Share delicious sweets and joyful moments with everyone.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎆</div>
+            <h3>Fireworks</h3>
+            <p>Enjoy a magical celebration with lights and happiness.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="family">
+
+    <div class="rangoli">🌺</div>
+
+    <div class="family">
+        <h2>❤️ Diwali With Family ❤️</h2>
+
+        <p>
+            Family is the greatest gift of life.<br>
+            Celebrate together, laugh together, and create memories
+            that last forever.<br><br>
+
+            May our home always be filled with love,
+            laughter, peace and endless blessings.
+        </p>
+
+        <h2 style="margin-top:25px;">🏡 Family First, Always! 🏡</h2>
+
+        <button class="main-btn" onclick="familyWish()">
+            💖 Send Family Wishes
+        </button>
+
+        <p id="wish" style="margin-top:25px;color:#fff4a3;"></p>
+    </div>
 
 </section>
 
 <footer>
-
-<p>
-Built and Deployed using Jenkins CI/CD Pipeline
-</p>
-
+    <h2>🪔 शुभ दीपावली 🪔</h2>
+    <p>Made with ❤️ for everyone celebrating with family</p>
+    <p style="margin-top:15px;">✨ May your life always shine bright ✨</p>
 </footer>
 
 <script>
+const colors = [
+    "#ffea00", "#ff3b30", "#00e5ff",
+    "#ff00dd", "#7cff00", "#ffffff", "#ff8c00"
+];
 
-function showMessage(){
+function createFirework(x, y) {
+    const container = document.getElementById("fireworks");
 
-document.getElementById("message").innerHTML =
-"✅ Deployment Successful! Application is running inside Docker Container.";
+    for (let i = 0; i < 45; i++) {
+        const particle = document.createElement("span");
+        particle.className = "particle";
 
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 50 + Math.random() * 130;
+
+        particle.style.left = x + "px";
+        particle.style.top = y + "px";
+        particle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        particle.style.setProperty("--x",
+            Math.cos(angle) * distance + "px");
+        particle.style.setProperty("--y",
+            Math.sin(angle) * distance + "px");
+
+        container.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 1300);
+    }
 }
 
+function startCelebration() {
+    const message = "🎉 HAPPY DIWALI! 🪔";
+    alert(message + "\nMay happiness shine in every home!");
+
+    for (let i = 0; i < 9; i++) {
+        setTimeout(() => {
+            createFirework(
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerHeight * .7
+            );
+        }, i * 250);
+    }
+}
+
+function familyWish() {
+    document.getElementById("wish").innerHTML =
+        "❤️ Wishing our beautiful family endless love, joy and prosperity! 🪔";
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            createFirework(
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerHeight * .7
+            );
+        }, i * 300);
+    }
+}
+
+// Floating flower petals
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+
+    const flowers = ["🌸", "🌺", "✨", "🌼"];
+    petal.innerHTML =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (15 + Math.random() * 22) + "px";
+    petal.style.animationDuration = (5 + Math.random() * 6) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => petal.remove(), 11000);
+}
+
+setInterval(createPetal, 700);
+
+// Gentle automatic fireworks
+setInterval(() => {
+    createFirework(
+        Math.random() * window.innerWidth,
+        80 + Math.random() * window.innerHeight * .5
+    );
+}, 2800);
 </script>
 
 </body>
 </html>
+
 
